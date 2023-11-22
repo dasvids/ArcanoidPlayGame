@@ -1,0 +1,4 @@
+pro 600
+Anonym 150
+Anonym 90
+wawa 60

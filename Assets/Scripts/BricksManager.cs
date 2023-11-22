@@ -177,7 +177,8 @@ public class BricksManager : MonoBehaviour
         this.CurrentLevel++;
 
         if (this.CurrentLevel >= this.levelsData.Count)
-        {   
+        {
+            MainSceneManager.Instance.AddPlayerToTop();
             GameManager.Instance.ShowVictoryScreen();
         }
         else
