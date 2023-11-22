@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public int Lives { get; set; }
     public static event Action<int> OnLiveLost;
 
+    public int Score { get; set; }
     private void Start()
     {
         this.Lives = AvailibleLives;
