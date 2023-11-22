@@ -66,4 +66,12 @@ public class UIManager : MonoBehaviour
         Brick.OnBrickDestruction -= OnBrickDestruction;
         BricksManager.OnLevelLoaded -= OnLevelLoaded;
     }
+
+    internal void UpdateLivesText(int lives)
+    {
+        if (LivesText != null)
+        {
+            LivesText.text = "Lives: " + lives.ToString();
+        }
+    }
 }

@@ -88,4 +88,14 @@ public class GameManager : MonoBehaviour
     {
         victoryScreen.SetActive(true);
     }
+
+    public void UpdateLivesText()
+    {
+        UIManager uiManager = FindObjectOfType<UIManager>();
+
+        if (uiManager != null)
+        {
+            uiManager.UpdateLivesText(Lives);
+        }
+    }
 }
