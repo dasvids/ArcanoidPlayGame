@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BricksManager : MonoBehaviour
@@ -47,7 +48,6 @@ public class BricksManager : MonoBehaviour
     {
 
         this.bricksContainer = new GameObject("BricksContainer");
-        this.RemainingBricks = new List<Brick>(); 
         this.levelsData = this.LoadLevelsData();
         this.GenerateBricks();
     }
@@ -155,5 +155,34 @@ public class BricksManager : MonoBehaviour
         }
 
         return levelsData;
+    }
+
+    internal void LoadLevel(int level)
+    {
+        this.CurrentLevel = level;
+        this.ClearRemainingBricks();
+        this.GenerateBricks();
+    }
+
+    private void ClearRemainingBricks()
+    {
+        foreach (Brick brick in this.RemainingBricks.ToList())
+        {
+            Destroy(brick.gameObject);
+        }
+    }
+
+    internal void LoadNextLevel()
+    {
+        this.CurrentLevel++;
+
+        if (this.CurrentLevel >= this.levelsData.Count)
+        {   
+            GameManager.Instance.ShowVictoryScreen();
+        }
+        else
+        {
+            this.LoadLevel(this.CurrentLevel);
+        }
     }
 }
