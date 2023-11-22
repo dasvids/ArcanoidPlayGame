@@ -22,4 +22,8 @@ public class GameManager : MonoBehaviour
 
     public bool IsGameStarted { get; set; }
 
+    private void Start()
+    {
+        
+    }
 }
